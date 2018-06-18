@@ -1,0 +1,30 @@
+<li [ngClass]=" {'list-group-item': true,
+                'list-group-item-success':postLoveits>0,
+                'list-group-item-danger':postLoveits<0}">
+  <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+      <h2> <strong> {{postTitle}}</strong></h2>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+      <h3> {{postCreated_at|date: 'short'}}</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      {{postContent}}
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <button class="btn btn-success" (click)="onLike()">love it</button>
+      <button class="btn btn-danger" (click)="onDislike()">don't love it</button>
+      <span class="badge" *ngIf="getLikes()>0">{{ getLikes() }} j'aime(s)</span>
+      <span class="badge" *ngIf="getLikes()<0">{{ getLikes()*-1 }} j'aime(s) pas</span>
+    </div>
+
+  </div>
+
+</li>
